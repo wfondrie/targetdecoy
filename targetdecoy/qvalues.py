@@ -211,5 +211,8 @@ def plot(qvalues, target=None, threshold=0.1, ax=None, **kwargs):
     dat["num"] = dat["target"].cumsum()
     dat = dat.groupby(["qvalues"]).max().reset_index()
     dat = dat[["qvalues", "num"]]
+    dat = dat[dat.qvalues <= threshold]
 
+    ax.set_xlabel("q-value")
+    ax.set_ylabel("Accepted Target PSMs")
     return ax.plot(dat.qvalues.values, dat.num.values, **kwargs)

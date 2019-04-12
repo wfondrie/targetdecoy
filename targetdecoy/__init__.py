@@ -2,7 +2,8 @@
 """
 See the README for detailed documentation and examples.
 """
-from .qvalues import qvalues
+from . import qvalues
 
 name = "targetdecoy"
 __version__ = "0.0.1"
+__all__ = ["qvalues"]

@@ -1,0 +1,2 @@
+recursive-include targetdecoy *.py
+include README.md

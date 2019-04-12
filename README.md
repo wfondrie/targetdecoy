@@ -23,8 +23,11 @@ import numpy as np
 import matplotlib.pyplot as plt
 import targetdecoy
 
+# Set seed for reproducibility
+np.randome.seed(1)
+
 # Arbitrary search engine scores. Higher is better
-target_tp_scores = np.random.randn(300) + 4 # true target hits
+target_tp_scores = np.random.randn(300) + 6 # true target hits
 target_fp_scores = np.random.randn(350) + 3 # false target hits
 decoy_scores = np.random.randn(350) + 3 # decoy hits
 
@@ -33,7 +36,7 @@ scores = np.concatenate((target_tp_scores,
                          decoy_scores))
 
 # Labels for the data. True indicates a target, False indicates a decoy.
-labels = np.concatenate(np.repeat(True, 650), np.repeat(False, 350))
+labels = np.concatenate((np.repeat(True, 650), np.repeat(False, 350)))
 
 # Estimate q-values
 qvals = targetdecoy.qvalues.estimate(metric=scores, target=labels, desc=True)
