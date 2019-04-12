@@ -20,7 +20,7 @@ With these in hand, the **targetdecoy** package currently provides a two functio
 
 ```Python
 import numpy as np
-import matplotlib.pyplot as mp
+import matplotlib.pyplot as plt
 import targetdecoy
 
 # Arbitrary search engine scores. Higher is better
@@ -36,11 +36,11 @@ scores = np.concatenate((target_tp_scores,
 labels = np.concatenate(np.repeat(True, 650), np.repeat(False, 350))
 
 # Estimate q-values
-qvals = targetdecoy.qvalues(metric=scores, target=labels, desc=True)
+qvals = targetdecoy.qvalues.estimate(metric=scores, target=labels, desc=True)
 
 # Plot q-values
 plt.figure()
-targetdecoy.plot(qvals, labels)
+targetdecoy.qvalues.plot(qvals, labels)
 plt.show()
 ```
 
