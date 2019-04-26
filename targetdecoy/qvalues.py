@@ -132,8 +132,7 @@ def estimate(metric, target, desc=True):
 
 def plot(qvalues, target=None, threshold=0.1, ax=None, **kwargs):
     """
-    Plot a Target-Decoy curve for ranked by a specified score
-    metric.
+    Plot the number of accepted PSMs at each q-value.
 
     Parameters
     ----------
