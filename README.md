@@ -13,7 +13,7 @@ Have more questions about q-values and FDR? Check out these references for a goo
 + Käll L, Storey JD, MacCoss MJ, Noble WS. Posterior Error Probabilities and False Discovery Rates: Two Sides of the Same Coin. *J Proteome Res* 7(01):40--44 (2008). [[Journal](https://pubs.acs.org/doi/10.1021/pr700739d)]
 
 ## Installation
-The **targetdecoy** package will soon be available on PyPI for Python versions 3.5+ and depends on the numpy, pandas and matplotlib packages. Until then, the package can still be easily installed easily with pip:
+The **targetdecoy** package will soon be available on PyPI for Python versions 3.5+ and depends on the [numpy](https://www.numpy.org/), [pandas](https://pandas.pydata.org/), and [matplotlib](https://matplotlib.org/) packages. Until then, the package can still be easily installed easily with pip:
 
 ```bash
 pip install git+git://github.com/wfondrie/targetdecoy
@@ -52,8 +52,7 @@ With these in hand, the **targetdecoy** package currently provides a two functio
 >>> targetdecoy.qvalues.plot(qvalues=qvals, target=labels, threshold=0.1)
 >>> plt.savefig("curve.png")
 ```
-This yields:
-
+This yields:  
 ![](curve.png)
 
 While the **targetdecoy** package was created with PSMs in mind, it can easily be used to estimate q-values for peptides and proteins as well if you have already aggregated the data to either level.
