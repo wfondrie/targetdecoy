@@ -52,8 +52,13 @@ With these in hand, the **targetdecoy** package currently provides a two functio
 >>> targetdecoy.qvalues.plot(qvalues=qvals, target=labels, threshold=0.1)
 >>> plt.savefig("curve.png")
 ```
+This yields:
 
 ![](curve.png)
 
 While the **targetdecoy** package was created with PSMs in mind, it can easily be used to estimate q-values for peptides and proteins as well if you have already aggregated the data to either level.
-ve.
+
+## TODO
++ Create detailed API docs  
++ Add unit tests and Travis-CI  
++ FDR calculations for XL-MS
