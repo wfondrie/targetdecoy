@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/wfondrie/targetdecoy.svg?branch=master)](https://travis-ci.org/wfondrie/targetdecoy)  
 # targetdecoy
 A simple Python package for proteomics confidence estimation using target decoy competition
 
