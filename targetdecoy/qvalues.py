@@ -214,4 +214,6 @@ def plot(qvalues, target=None, threshold=0.1, ax=None, **kwargs):
 
     ax.set_xlabel("q-value")
     ax.set_ylabel("Accepted Target PSMs")
-    return ax.plot(dat.qvalues.values, dat.num.values, **kwargs)
+
+    return ax.plot(dat.qvalues.values, dat.num.values,
+                   drawstyle="steps-pre", **kwargs)
