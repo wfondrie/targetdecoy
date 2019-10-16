@@ -210,10 +210,22 @@ def plot(qvalues, target=None, threshold=0.1, ax=None, **kwargs):
     dat["num"] = dat["target"].cumsum()
     dat = dat.groupby(["qvalues"]).max().reset_index()
     dat = dat[["qvalues", "num"]]
-    dat = dat[dat.qvalues <= threshold]
 
+    zero = pd.DataFrame({"qvalues": 0, "num": 0}, index=[-1])
+    dat = pd.concat([zero, dat], sort=True).reset_index(drop=True)
+
+    xmargin = threshold * 0.05
+    ymax = dat.num[dat.qvalues <= (threshold + xmargin)].max()
+    ymargin = ymax * 0.05
+    dat = dat.loc[dat.qvalues <= (threshold + xmargin)]
+
+    # Set margins
+    curr_ylims = ax.get_ylim()
+    if curr_ylims[1] < ymax + ymargin:
+        ax.set_ylim(0 - ymargin, ymax + ymargin)
+
+    ax.set_xlim(0 - xmargin, threshold + xmargin)
     ax.set_xlabel("q-value")
     ax.set_ylabel("Accepted Target PSMs")
 
-    return ax.plot(dat.qvalues.values, dat.num.values,
-                   drawstyle="steps-pre", **kwargs)
+    return ax.step(dat.qvalues.values, dat.num.values, **kwargs)
