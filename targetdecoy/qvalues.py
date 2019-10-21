@@ -217,7 +217,7 @@ def plot(qvalues, target=None, threshold=0.1, ax=None, **kwargs):
     xmargin = threshold * 0.05
     ymax = dat.num[dat.qvalues <= (threshold + xmargin)].max()
     ymargin = ymax * 0.05
-    dat = dat.loc[dat.qvalues <= (threshold + xmargin)]
+    #dat = dat.loc[dat.qvalues <= (threshold + xmargin)]
 
     # Set margins
     curr_ylims = ax.get_ylim()
